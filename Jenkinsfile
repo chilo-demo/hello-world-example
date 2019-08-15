@@ -1,17 +1,12 @@
 pipeline {
-  agent {
-    node {
-      label 'master'
-    }
-    
-  }
+  agent none
   stages {
     stage('Build') {
       steps {
         withMaven(maven: 'M3') {
           sh 'mvn clean install'
         }
-        
+
       }
     }
     stage('Results') {
